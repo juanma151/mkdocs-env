@@ -1,0 +1,97 @@
+/* ==========================================================================
+   💻 Tipografía y color adaptativo para bloques de código (web + PDF)
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap");
+
+/* --- Texto base más grande en la web --- */
+.md-typeset {
+  font-size: 0.95rem !important;   /* 🟢 aumenta el cuerpo del texto (~15px) */
+  line-height: 1.6 !important;
+}
+
+/* --- Base general (modo claro + PDF) --- */
+code, pre code, pre, .md-typeset code {
+  font-family: "Fira Code", Consolas, monospace !important;
+  font-size: 1.0em !important;        /* 🟢 aumentado (antes 0.85–0.9em aprox.) */
+  line-height: 1.5 !important;
+  background-color: #f8fafc !important;
+  border: 1px solid #d9e0e7 !important;
+  border-radius: 6px;
+  color: #1e1e1e !important;
+}
+
+/* --- Bloques preformateados --- */
+.md-typeset pre {
+  padding: 0.9em 1.1em !important;
+  overflow-x: auto;
+}
+
+/* --- Modo oscuro del tema Material --- */
+[data-md-color-scheme="slate"],
+[data-md-color-scheme="default-dark"],
+[data-md-color-scheme="dracula"] {
+  --code-bg: #1e1e1e;
+  --code-border: #3a3a3a;
+  --code-text: #f1f1f1;
+
+  code, pre code, pre, .md-typeset code {
+    background-color: var(--code-bg) !important;
+    border-color: var(--code-border) !important;
+    color: var(--code-text) !important;
+    font-size: 1.05em !important;     /* 🟣 un poquito mayor en modo oscuro */
+  }
+
+  .md-typeset pre {
+    background-color: var(--code-bg) !important;
+    border: 1px solid var(--code-border) !important;
+  }
+}
+
+/* --- En PDF (sin afectar a web) --- */
+@media print {
+  pre, code, .md-typeset code {
+    background-color: #f9f9fb !important;
+    border: 1px solid #ccd3db !important;
+    font-size: 11pt !important;
+    color: #111 !important;
+  }
+}
+
+/* ==========================================================================
+   🧭 Ajustes de legibilidad para el menú lateral y las tablas (solo web)
+   ========================================================================== */
+
+/* --- Menú lateral (nav y subniveles) --- */
+.md-nav__link,
+.md-nav__title,
+.md-nav__item {
+  font-size: 0.95rem !important;      /* antes 0.8–0.85rem → ahora ≈15px */
+  line-height: 1.5 !important;
+}
+
+.md-sidebar--primary .md-nav__link {
+  font-weight: 500;
+}
+
+.md-sidebar--secondary .md-nav__link {
+  font-size: 0.9rem !important;
+  opacity: 0.9;
+}
+
+/* --- Títulos dentro del índice flotante --- */
+.md-nav__link--active {
+  font-weight: 600;
+  color: var(--md-accent-fg-color, #004080) !important;
+}
+
+/* --- Tablas en la web --- */
+.md-typeset table {
+  font-size: 0.95rem !important;      /* ligeramente mayor (~15px) */
+}
+
+.md-typeset th, .md-typeset td {
+  padding: 0.6em 0.9em !important;
+  line-height: 1.4 !important;
+}
+

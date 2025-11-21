@@ -1,0 +1,34 @@
+/* ==========================================================================
+   🧭 Forzar visibilidad del botón de menú (☰)
+   ========================================================================== */
+
+.md-header__button.md-icon[for="__drawer"] {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  color: var(--md-primary-fg-color) !important;
+  opacity: 0.9 !important;
+  font-size: 1.6rem !important;
+  margin-left: 0.3rem !important;
+  z-index: 2000 !important;
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-icon[for="__drawer"] {
+  color: #eee !important;
+}
+
+/* Botón ☰ visible también en modo claro */
+[data-md-color-scheme="default"] .md-header__button.md-icon[for="__drawer"] {
+  color: #222 !important;
+}
+
+/* 💡 Permitir colapsar el menú lateral también en escritorio */
+.md-sidebar--primary.collapsed {
+  width: 0 !important;
+  overflow: hidden !important;
+  transition: width 0.3s ease;
+}
+
+.md-sidebar--primary {
+  transition: width 0.3s ease;
+}

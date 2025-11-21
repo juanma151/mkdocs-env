@@ -1,0 +1,13 @@
+.diagram-block {
+  border: 2px solid var(--md-default-fg-color--lighter);
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  background: var(--md-default-bg-color);
+}
+.diagram-block svg {
+  max-width: 100%;
+  height: auto;
+}
+
+──────────────────────────────────────────────

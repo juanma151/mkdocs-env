@@ -1,0 +1,38 @@
+/* =======================================================================
+   Habilitar colapsado del menú lateral también en ESCRITORIO (Material)
+   - Reutiliza el checkbox #__drawer que ya existe para móvil.
+   - No requiere JavaScript.
+   ======================================================================= */
+
+@media (min-width: 76.25em) { /* breakpoint de escritorio de Material (~1220px) */
+
+  /* Transiciones suaves */
+  .md-sidebar--primary {
+    transition: transform .25s ease;
+    will-change: transform;
+  }
+
+  /* Cuando el checkbox está marcado, mueve el sidebar fuera de pantalla */
+  #__drawer:checked ~ [data-md-component="container"] .md-sidebar--primary {
+    transform: translateX(-100%);
+  }
+
+  /* Ajusta el contenido principal para ocupar todo el ancho al ocultar el menú */
+  #__drawer:checked ~ [data-md-component="container"] .md-main {
+    margin-left: 0 !important;
+  }
+
+  /* En algunos temas, el contenido tiene envolturas internas; asegúrate de no dejar un hueco */
+  #__drawer:checked ~ [data-md-component="container"] .md-main__inner {
+    margin-left: 0 !important;
+  }
+}
+
+/* Asegurar visibilidad del botón en modo claro y oscuro */
+.md-header__button.md-icon[for="__drawer"] {
+  display: flex !important;
+  color: var(--md-primary-fg-color) !important;
+  opacity: .9;
+}
+[data-md-color-scheme="default"] .md-header__button.md-icon[for="__drawer"] { color: #222 !important; }
+[data-md-color-scheme="slate"]   .md-header__button.md-icon[for="__drawer"] { color: #eee !important; }

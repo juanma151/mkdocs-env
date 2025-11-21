@@ -1,0 +1,151 @@
+/* ──────────────────────────────────────────────
+   Estilos PDF para MkDocs con mkdocs-with-pdf
+   Autor: Juan Manuel Piñero Sánchez
+   ────────────────────────────────────────────── */
+
+/* ===== Portada ===== */
+@page :first {
+  @top-center {
+    content: none;
+  }
+  @bottom-center {
+    content: none;
+  }
+  margin: 4cm 2cm 3cm 2cm;
+}
+
+.cover-page {
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #1e2a33;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90vh;
+}
+
+.cover-page h1 {
+  color: #003366;
+  font-size: 2.6em;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.3em;
+}
+
+.cover-page h2 {
+  color: #4c5c68;
+  font-weight: 400;
+  font-size: 1.4em;
+  margin-bottom: 1em;
+}
+
+.cover-page .author {
+  color: #4c5c68;
+  font-size: 1.1em;
+  margin-top: 1.5em;
+}
+
+/* ===== Páginas generales ===== */
+@page {
+  size: A4;
+  margin: 2.5cm 2.5cm 2cm 2.5cm;
+
+  @bottom-center {
+    content: "Módulo IFCD0112 — " counter(page);
+    font-size: 9pt;
+    color: #4c5c68;
+  }
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt;
+  color: #1e2a33;
+  line-height: 1.45;
+}
+
+/* ===== Títulos ===== */
+h1 {
+  color: #003366;
+  font-size: 1.8em;
+  margin-top: 1.2em;
+  border-bottom: 2px solid #c4cfd6;
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  color: #004080;
+  font-size: 1.4em;
+  margin-top: 1em;
+}
+
+h3 {
+  color: #004d66;
+  font-size: 1.15em;
+  margin-top: 0.8em;
+}
+
+/* ===== Código ===== */
+pre code {
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 9.5pt;
+  background-color: #f5f7f9;
+  border: 1px solid #d9e1e8;
+  border-left: 3px solid #003366;
+  padding: 0.8em 1em;
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ===== Tablas ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 10pt;
+}
+
+th, td {
+  border: 1px solid #c4cfd6;
+  padding: 6px 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #e8edf1;
+  color: #003366;
+  font-weight: 600;
+}
+
+/* ===== Citas y notas ===== */
+blockquote {
+  border-left: 3px solid #004080;
+  margin: 1em 0;
+  padding-left: 1em;
+  color: #333;
+  font-style: italic;
+}
+
+/* ===== Listas ===== */
+ul, ol {
+  margin-left: 1.2em;
+}
+
+li {
+  margin: 0.3em 0;
+}
+
+/* ===== Imágenes ===== */
+img {
+  display: block;
+  margin: 1em auto;
+  max-width: 100%;
+}
+
+/* ===== Paginación visual ===== */
+@page :right {
+  @bottom-right {
+    content: "Página " counter(page);
+  }
+}
+

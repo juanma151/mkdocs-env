@@ -1,0 +1,102 @@
+site_name: "MkDocs Test – Mermaid Plugin"
+site_author: "Juan Manuel Piñero Sánchez"
+site_url: "https://example.com"
+
+nav:
+  - Home: index.md
+  - Mermaid test: mermaid-test.md
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: es
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a claro
+
+  features:
+    # Navegación principal
+    - navigation.expand       # permite expandir las secciones
+    - navigation.sections     # muestra jerarquías en el menú lateral
+    - navigation.top          # vuelve arriba con clic en el encabezado
+    - navigation.hide         # muestra el botón ☰ para ocultar el menú lateral
+    - toc.integrate           # integra el índice dentro del menú lateral
+
+    # Interacción y usabilidad
+    - header.autohide         # esconde el header al avanzar hacia abajo
+    - content.code.annonate   # para anotar el código (lo usa mermaid)
+    - content.code.copy       # botón de copiar en bloques de código
+
+  mermaid:
+    version: "10.9.0"
+
+extra_css:
+  - assets/css/code-font.css
+  - assets/css/desktop-drawer.css
+  - assets/css/diagram.css
+  - assets/css/mermaid-xform.css
+  - assets/css/nav-toggle.css
+  - assets/css/pdf-academy.css
+  - assets/css/pdf-buttons.css
+  - assets/css/pdf.css 
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: plantuml
+          class: plantuml
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - with-pdf:
+      author: "Juan Manuel Piñero Sánchez"
+      enabled_if_env: ENABLE_PDF_EXPORT
+      output_path: assets/pdf/mkdocs-test.pdf
+      cover_title: "TEST"
+      cover_subtitle: "TEST TEST TEST TEST TEST"
+      copyright: "2025"
+      toc_level: 3
+  # Este es el plugin de mermaid que hemos desarrollado
+  - mermaidxform
+
+
+extra:
+  # mermaid_test_enabled: true
+  generators: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com
+      name: "Repositorio en GitHub"
+
