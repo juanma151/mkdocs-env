@@ -1,0 +1,53 @@
+/* ============================================================
+   Estilos base de mermaid-xform-plugin
+   ============================================================ */
+
+.diagram-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2em auto;
+  padding: 1em;
+  border: 1px solid var(--md-default-fg-color--lighter, #ccc);
+  border-radius: 6px;
+  background-color: var(--md-default-bg-color, #fafafa);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.diagram-title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 0.4em;
+  color: var(--md-default-fg-color, #222);
+}
+
+.mermaid text {
+  font-family: "Lato", "Roboto", "Helvetica Neue", Arial, sans-serif !important;
+  fill: var(--md-default-fg-color, #333) !important;
+  font-size: 14px;
+}
+
+/* Colores de las clases UML (se pueden sobreescribir por CSS del usuario) */
+.mermaid .publicClass rect {
+  fill: #bbdefb !important;
+  stroke: #0d47a1 !important;
+}
+.mermaid .protectedClass rect {
+  fill: #fff9c4 !important;
+  stroke: #fbc02d !important;
+}
+.mermaid .privateClass rect {
+  fill: #ffcdd2 !important;
+  stroke: #c62828 !important;
+}
+.mermaid .packageClass rect {
+  fill: #c8e6c9 !important;
+  stroke: #2e7d32 !important;
+}
+.mermaid .abstractClass rect {
+  fill: #e1bee7 !important;
+  stroke: #6a1b9a !important;
+  stroke-dasharray: 5 3 !important;
+}
+

@@ -32,11 +32,14 @@
           then pkgs.nodePackages
           else pkgs.nodePackages_latest;
 
+        # Best available python set
+        python = pkgs.python313;
+
         ########################################
         # IMPORT MONOREPO TOP-LEVEL PACKAGE SET
         ########################################
         top = import ./default.nix {
-          inherit pkgs nodePkgs;
+          inherit pkgs nodePkgs python;
         };
       in {
         ########################################
@@ -45,7 +48,7 @@
         packages =
           top
           // {
-            default = top.mermaidPlaywrightCli;
+            default = top.mermaidXformMkdocsPlugin;
           };
 
         ########################################
@@ -60,13 +63,8 @@
         ########################################
         # DEV SHELL (nix develop)
         ########################################
-        devShells.default = pkgs.mkShell {
-          packages = [
-            top.mermaidPlaywrightCli
-            nodejsBin
-            pkgs.python3
-          ];
-        };
+        devShells.mkdocsEnv = top.mkdocsEnv;
+        devShells.default = top.mkdocsEnv;
       }
     );
 }

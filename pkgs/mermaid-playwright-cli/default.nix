@@ -18,7 +18,7 @@
 
   mermaidPlaywrightCli = pkgs.stdenv.mkDerivation {
     pname = "mermaid-playwright-cli";
-    version = "1.0";
+    version = "1.0.0";
 
     nativeBuildInputs = [pkgs.makeWrapper];
     dontUnpack = true;

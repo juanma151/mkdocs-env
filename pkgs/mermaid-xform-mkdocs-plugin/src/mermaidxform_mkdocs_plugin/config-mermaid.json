@@ -1,0 +1,10 @@
+{
+  "theme": "base",
+  "htmlLabels": false,
+  "themeVariables": {
+    "fontFamily": "DejaVu Sans, Arial, Helvetica, sans-serif",
+    "primaryTextColor": "#000000",
+    "fontSize": "14px"
+  },
+  "themeCSS": "text, tspan { font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif !important; fill: #000000 !important; }"
+}
